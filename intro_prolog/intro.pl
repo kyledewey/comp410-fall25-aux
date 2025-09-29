@@ -56,7 +56,31 @@ likes(alice, pizza).
 likes(alice, burger).
 likes(alice, burrito).
 likes(alice, yogurt).
-likes(bob, pizza).
 likes(bob, burger).
+likes(bob, pizza).
 likes(bob, salad).
 likes(bob, milk).
+likes(bill, X) :-
+    isWarm(X).
+likes(janet, X) :-
+    likes(bob, X),
+    likes(alice, X).
+likes(mel, yogurt).
+likes(mel, X) :-
+    likes(janet, X).
+
+
+% between0And10/1 procedure
+% a rule
+between0And10(N) :- % head of the rule
+    % body of the rule
+    %% 0 =< N,
+    %% N =< 10.
+    betweenMinMaxInclusive(0, 10, N).
+
+% Min <= Num <= Max
+betweenMinMaxInclusive(Min, Max, Num) :-
+    Min =< Num,
+    Num =< Max.
+
+    
