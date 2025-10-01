@@ -79,8 +79,18 @@ between0And10(N) :- % head of the rule
     betweenMinMaxInclusive(0, 10, N).
 
 % Min <= Num <= Max
+%% :-(betweenMinMaxInclusive(Min, Max, Num),
+%%    ,(=<(Min, Num),
+%%      =<(Num, Max))).
+
 betweenMinMaxInclusive(Min, Max, Num) :-
     Min =< Num,
     Num =< Max.
 
     
+foo(1).
+foo(2).
+
+areEquivalent(X, X).
+areEquivalent(foo, bar).
+areEquivalent(bar, foo).
