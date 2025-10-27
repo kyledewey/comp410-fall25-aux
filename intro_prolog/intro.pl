@@ -32,9 +32,12 @@ areEqual(X, X).
 areEqual(A, A, A, A).
 
 
-isWarm(pizza).
-isWarm(burger).
-isWarm(burrito).
+isWarm(pizza) :-
+    true.
+isWarm(burger) :-
+    true.
+isWarm(burrito) :-
+    true.
 
 % Approach #1
 %% likes(alice, pizza, burger, burrito, yogurt).
