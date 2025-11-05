@@ -8,7 +8,10 @@ printAll([Head|Tail]) :-
 addAmount([], _, []).
 addAmount([InputHead|InputTail],
           Amount,
-          OutputList) :-
+          [OutputHead|OutputTail]) :-
     OutputHead is InputHead + Amount,
-    addAmount(InputTail, Amount, OutputTail),
-    OutputList = [OutputHead|OutputTail].
+    addAmount(InputTail, Amount, OutputTail).
+
+% myAppend(InputList1, InputList2, OutputList)
+myAppend([], List, List).
+% FOR MONDAY: recursive case of myAppend

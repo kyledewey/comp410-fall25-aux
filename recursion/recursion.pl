@@ -41,3 +41,31 @@ myBetween(Low, High, Result) :- % recursive case
 %%     (X is F; (FNext is F + 1,
 %%               myBetween(FNext, L, X))).
  
+% exp ::= number(PROLOG_NUMBER) |
+%         add(exp, exp) |
+%         minus(exp, exp) |
+%         mult(exp, exp) |
+%         unary_minus(exp)
+
+%% eval(N, N) :-
+%%     integer(N).
+
+% eval(ASTRepresentation, Result)
+eval(number(N), N).
+eval(add(E1, E2), Result) :-
+    eval(E1, E1Result),
+    eval(E2, E2Result),
+    Result is E1Result + E2Result.
+eval(minus(E1, E2), Result) :-
+    eval(E1, E1Result),
+    eval(E2, E2Result),
+    Result is E1Result - E2Result.
+eval(mult(E1, E2), Result) :-
+    eval(E1, E1Result),
+    eval(E2, E2Result),
+    Result is E1Result * E2Result.
+eval(unary_minus(E), Result) :-
+    eval(E, EResult),
+    Result is -EResult.
+
+
