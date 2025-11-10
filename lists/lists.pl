@@ -12,6 +12,21 @@ addAmount([InputHead|InputTail],
     OutputHead is InputHead + Amount,
     addAmount(InputTail, Amount, OutputTail).
 
+% myAppend(list1, list2) => OutputList
+% def myAppend(list1, list2):
+%   if isinstance(list1, Nil):
+%     return list2
+%   elif isinstance(list1, Cons):
+%     head = list1.head
+%     tail = list1.tail
+%     rest = myAppend(tail, list2)
+%     return Cons(head, rest)
+
 % myAppend(InputList1, InputList2, OutputList)
 myAppend([], List, List).
-% FOR MONDAY: recursive case of myAppend
+myAppend(List1, List2, OutputList) :-
+    List1 = [Head|Tail],
+    myAppend(Tail, List2, Rest),
+    OutputList = [Head|Rest].
+
+
