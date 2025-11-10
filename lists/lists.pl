@@ -24,9 +24,7 @@ addAmount([InputHead|InputTail],
 
 % myAppend(InputList1, InputList2, OutputList)
 myAppend([], List, List).
-myAppend(List1, List2, OutputList) :-
-    List1 = [Head|Tail],
-    myAppend(Tail, List2, Rest),
-    OutputList = [Head|Rest].
+myAppend([Head|Tail], List2, [Head|Rest]) :-
+    myAppend(Tail, List2, Rest).
 
 
