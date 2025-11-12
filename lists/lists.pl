@@ -27,4 +27,21 @@ myAppend([], List, List).
 myAppend([Head|Tail], List2, [Head|Rest]) :-
     myAppend(Tail, List2, Rest).
 
+% def sumAll(lst):
+%   if isinstance(lst, Nil):
+%     return 0
+%   elif isinstance(lst, Cons):
+%     tmp = sumAll(lst.tail)
+%     return tmp + lst.head
+sumAll([], 0).
+sumAll([Head|Tail], Output) :-
+    sumAll(Tail, Tmp),
+    Output is Tmp + Head.
+
+% sublist(InputList, OutputList)
+sublist([], []).
+sublist([Keep|InputTail], [Keep|OutputTail]) :-
+    sublist(InputTail, OutputTail).
+sublist([_|Tail], Output) :-
+    sublist(Tail, Output).
 
