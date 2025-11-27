@@ -50,6 +50,8 @@ myBetween(Low, High, Result) :- % recursive case
 %% eval(N, N) :-
 %%     integer(N).
 
+% ?- eval(minus(number(5), number(2)), N).
+%     eval(number(5), E1Result) % E1Result = 5
 % eval(ASTRepresentation, Result)
 eval(number(N), N).
 eval(add(E1, E2), Result) :-
@@ -68,4 +70,7 @@ eval(unary_minus(E), Result) :-
     eval(E, EResult),
     Result is -EResult.
 
-
+sumAll([], 0).
+sumAll([Head|Tail], Output) :-
+    sumAll(Tail, Tmp),
+    Output is Tmp + Head.
